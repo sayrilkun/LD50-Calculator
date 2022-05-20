@@ -88,10 +88,28 @@ def lr():
     st.image(image, caption='R-Squared Interpretation')
     st.markdown("##")
 
-    if r2 >= 0.40:
-        st.info(f"Since the R-Squared value is **{round(r2,2)}**, we conclude that the following data are significantly correlated. Thus, the null hypothesis is rejected. ")
-    else:
-        st.info(f"Since the R-Squared value is **{round(r2,2)}**, we conclude that the following data are not significantly correlated. Thus, the null hypothesis is accepted. ")
+    if r2 >= 0.70:
+        st.info(f"Since the R-Squared value is *{round(r2,2)}*, we conclude that the following data have Very strong positive relationship. Thus, the null hypothesis is rejected. ")
+    elif r2 >= 0.40 and r2 <= 0.69:
+        st.info(f"Since the R-Squared value is *{round(r2,2)}*, we conclude that the following data have Strong positive relationship. Thus, the null hypothesis is rejected. ")
+    elif r2 >= 0.30 and r2 <= 0.39:
+        st.info(f"Since the R-Squared value is *{round(r2,2)}*, we conclude that the following data have Moderate positive relationship. Thus, the null hypothesis is rejected. ")
+    elif r2 >= 0.20 and r2 <= 0.29:
+        st.info(f"Since the R-Squared value is *{round(r2,2)}*, we conclude that the following data have Weak positive relationship. Thus, the null hypothesis is rejected. ")
+    elif r2 >= 0.01 and r2 <= 0.19:
+        st.info(f"Since the R-Squared value is *{round(r2,2)}*, we conclude that the following data have No or negligible relationship. Thus, the null hypothesis is rejected. ")
+    elif r2 == 0.00:
+        st.info(f"Since the R-Squared value is *{round(r2,2)}*, we conclude that the following data have No relationship (zero order corellation). Thus, the null hypothesis is rejected. ")
+    elif r2 <= -0.01 and r2 >= -0.19:
+        st.info(f"Since the R-Squared value is *{round(r2,2)}*, we conclude that the following data have No or negligible relationship. Thus, the null hypothesis is accpeted. ")
+    elif r2 <= -0.20 and r2 >= -0.29:
+        st.info(f"Since the R-Squared value is *{round(r2,2)}*, we conclude that the following data have Weak negative relationship. Thus, the null hypothesis is accepted. ")
+    elif r2 <= -0.30 and r2 >= -0.39:
+        st.info(f"Since the R-Squared value is *{round(r2,2)}*, we conclude that the following data have Moderate negative relationship. Thus, the null hypothesis is acppected. ")
+    elif r2 <= -0.40 and r2 >= -0.69:
+        st.info(f"Since the R-Squared value is *{round(r2,2)}*, we conclude that the following data have Strong negative relationship. Thus, the null hypothesis is accpected. ")
+    elif r2 <= -0.70:
+        st.info(f"Since the R-Squared value is *{round(r2,2)}*, we conclude that the following data have Very strong negative relationship. Thus, the null hypothesis is accepted. ")
 
 data = pd.read_csv('probit.csv')
 pTable_df = pd.DataFrame(data)
