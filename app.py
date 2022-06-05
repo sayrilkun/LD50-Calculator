@@ -263,8 +263,11 @@ if st.sidebar.button("Calculate LD50"):
         markers = True,
         color_discrete_sequence=["#000000"] * len(ld_df),
         template="plotly_white",
-    )
 
+    )
+    fig_ld_50.update_xaxes(showgrid=False, zeroline=False)
+    fig_ld_50.update_yaxes(showgrid=False, zeroline=False)
+    fig_ld_50.update_layout(plot_bgcolor="#FFFFFF")
     st.plotly_chart(fig_ld_50, use_container_width=True)
 
         
