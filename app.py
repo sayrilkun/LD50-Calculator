@@ -117,7 +117,7 @@ pTable_df = pd.DataFrame(data)
 # ---- SIDEBAR ----
 side_left, side_right = st.sidebar.columns(2)
 
-pnri = Image.open('pinri.png')
+pnri = Image.open('pinro.png')
 st.sidebar.image(pnri)
 # st.sidebar.header("Philippine Nuclear Reasearch Institute")
     # st.write("Philippine Nuclear Reasearch Institute")
