@@ -117,9 +117,9 @@ pTable_df = pd.DataFrame(data)
 # ---- SIDEBAR ----
 side_left, side_right = st.sidebar.columns(2)
 
-pnri = Image.open('pnri-4.png')
+pnri = Image.open('pinri.png')
 st.sidebar.image(pnri)
-st.sidebar.header("Philippine Nuclear Reasearch Institute")
+# st.sidebar.header("Philippine Nuclear Reasearch Institute")
     # st.write("Philippine Nuclear Reasearch Institute")
 
 
@@ -297,7 +297,7 @@ hide_st_style = """
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             footer:after {
-                content:'Made by Research Interns from National University'; 
+                content:'Made by Research Interns from National University Manila BSc Computer Engineering'; 
                 visibility: visible;
                 display: block;
                 position: relative;
