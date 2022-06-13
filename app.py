@@ -294,7 +294,7 @@ if st.sidebar.button("Calculate LD50"):
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
             <style>
-            #MainMenu {visibility: hidden;}
+            MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             footer:after {
                 content:'Made by Research Interns from National University Manila BSc Computer Engineering'; 
