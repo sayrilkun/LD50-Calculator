@@ -5,7 +5,6 @@ from openpyxl import load_workbook
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from PIL import Image
-
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="Median Lethal Dose Calculator", page_icon=":seedling:", layout="wide")
 st.title(":seedling: Median Lethal Dose Calculator")
@@ -117,7 +116,7 @@ pTable_df = pd.DataFrame(data)
 # ---- SIDEBAR ----
 side_left, side_right = st.sidebar.columns(2)
 
-pnri = Image.open('pinro.png')
+pnri = Image.open('logo-pnri.jpg')
 st.sidebar.image(pnri)
 # st.sidebar.header("Philippine Nuclear Reasearch Institute")
     # st.write("Philippine Nuclear Reasearch Institute")
@@ -289,7 +288,8 @@ if st.sidebar.button("Calculate LD50"):
     st.markdown("##")
   
     lr()
-
+# if st.button("Save as PDF"):
+#     pdfkit.from_url('https://share.streamlit.io/sayrilkun/ld50-calculator/app.py','google.pdf')
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
