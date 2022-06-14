@@ -6,7 +6,6 @@ from openpyxl import load_workbook
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from PIL import Image
-import matplotlib.pyplot as plt
 import webbrowser as web
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="Median Lethal Dose Calculator", page_icon=":seedling:", layout="wide")
