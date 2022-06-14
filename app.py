@@ -86,9 +86,8 @@ def lr():
     st.markdown("##")
 
     image = Image.open('table.png')
-    l,m,r = st.columns(3)
-    with m:
-        st.image(image, caption='R-Squared Interpretation')
+
+    st.image(image, caption='R-Squared Interpretation')
     st.markdown("##")
 
     if r2 >= 0.70:
