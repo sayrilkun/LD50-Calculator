@@ -132,9 +132,15 @@ st.sidebar.markdown("##")
 
 st.sidebar.warning('This calculator requires a specific template of data from an excel file. Please download the sample file below for your guidance. Thank you.')
 # st.sidebar.download_button('sample.xlsx', 'sample.xlsx')
-if st.sidebar.button('Download Sample File'):
-    webbrowser.open('https://firebasestorage.googleapis.com/v0/b/pnri-demeter.appspot.com/o/sample.xlsx?alt=media&token=de387956-95b8-4a81-b5b2-fb25b37958eb')
-
+# if st.sidebar.button('Download Sample File'):
+    # webbrowser.open('https://firebasestorage.googleapis.com/v0/b/pnri-demeter.appspot.com/o/sample.xlsx?alt=media&token=de387956-95b8-4a81-b5b2-fb25b37958eb')
+with open("sample.xlsx", "rb") as file:
+    btn = st.sidebar.download_button(
+            label="Download Sample File",
+            data=file,
+            file_name="sample.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
 uploaded_file = st.sidebar.file_uploader("Choose a file")
 # if uploaded_file is not None:
     # df = get_data_from_excel(uploaded_file)
