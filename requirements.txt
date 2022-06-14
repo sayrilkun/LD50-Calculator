@@ -3,4 +3,3 @@ pandas
 streamlit
 openpyxl
 scikit-learn
-statsmodels.api
