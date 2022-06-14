@@ -128,7 +128,6 @@ st.sidebar.image(pnri)
 mort_list = []
 dose = []
 st.sidebar.markdown("##")
-st.sidebar.markdown("##")
 
 st.sidebar.warning('This calculator requires a specific template of data from an excel file. Please download the sample file below for your guidance. Thank you.')
 # st.sidebar.download_button('sample.xlsx', 'sample.xlsx')
