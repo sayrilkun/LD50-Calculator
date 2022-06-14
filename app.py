@@ -6,7 +6,7 @@ from openpyxl import load_workbook
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from PIL import Image
-import webbrowser as web
+import webbrowser
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="Median Lethal Dose Calculator", page_icon=":seedling:", layout="wide")
 st.title(":seedling: Median Lethal Dose Calculator")
@@ -133,7 +133,7 @@ st.sidebar.markdown("##")
 st.sidebar.warning('This calculator requires a specific template of data from an excel file. Please download the sample file below for your guidance. Thank you.')
 # st.sidebar.download_button('sample.xlsx', 'sample.xlsx')
 if st.sidebar.button('Download Sample File'):
-    web.open('https://firebasestorage.googleapis.com/v0/b/pnri-demeter.appspot.com/o/sample.xlsx?alt=media&token=de387956-95b8-4a81-b5b2-fb25b37958eb')
+    webbrowser.open('https://firebasestorage.googleapis.com/v0/b/pnri-demeter.appspot.com/o/sample.xlsx?alt=media&token=de387956-95b8-4a81-b5b2-fb25b37958eb')
 
 uploaded_file = st.sidebar.file_uploader("Choose a file")
 # if uploaded_file is not None:
