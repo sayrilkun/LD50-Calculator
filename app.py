@@ -128,7 +128,7 @@ mort_list = []
 dose = []
 st.sidebar.markdown("##")
 
-st.sidebar.warning('This calculator requires a specific template of data from an excel file. Please download the sample file below for your guidance. Thank you.')
+st.sidebar.warning('This calculator requires a specific template of data from an excel file. Please download the sample file below for your guidance.')
 # st.sidebar.download_button('sample.xlsx', 'sample.xlsx')
 # if st.sidebar.button('Download Sample File'):
     # webbrowser.open('https://firebasestorage.googleapis.com/v0/b/pnri-demeter.appspot.com/o/sample.xlsx?alt=media&token=de387956-95b8-4a81-b5b2-fb25b37958eb')
@@ -213,6 +213,7 @@ if st.sidebar.button("Calculate LD50"):
     probit_df["Dose (Gy)"] = pd.to_numeric(probit_df["Dose (Gy)"].loc[1:], downcast="float")
     
     probit_df['Log Dose']= round(np.log10(probit_df['Dose (Gy)'].loc[1:]),2)
+    # probit_df['Log Dose']= np.log10(probit_df['Dose (Gy)'].loc[1:])
 
 # Referring to Probit Table
     if cg_mort >=10:
@@ -262,14 +263,17 @@ if st.sidebar.button("Calculate LD50"):
     b  = (x1*y2 - x2*y1)/(x1-x2)
 
     # x= round((5-b)/m,2)
+    no_exp= (5-b)/m
     x= round((5-b)/m,2)
-    xe = np.ceil(10**2.64)
+    xe = np.ceil(10**x)
 
     with left_column:
         st.dataframe(ld_df)
     with right_column:
-        st.subheader(F"LD50= {x}")
-        st.subheader(F"{xe} Gy in {rows_count} Days")
+        eldi = f'''<H3>LD<sub>50</sub> ≈ {x}</H3>
+        '''
+        st.markdown(eldi,unsafe_allow_html=True)
+        st.subheader(F"≈ {xe} Gy in {rows_count} Days")
 
 
     # with right_column:
@@ -294,6 +298,25 @@ if st.sidebar.button("Calculate LD50"):
         'x':0.5,
         'xanchor': 'center',
         'yanchor': 'top'})
+
+    # fig_ld_50.add_shape(type='line',
+    #             x0=2.54,
+    #             y0=5,
+    #             x1=x,
+    #             y1=5,
+    #             line=dict(color='Red',),
+    #             xref='x',
+    #             yref='y'
+    # )
+    # fig_ld_50.add_shape(type='line',
+    #             x0=x,
+    #             y0=5,
+    #             x1=x,
+    #             y1=2.54,
+    #             line=dict(color='Red',),
+    #             xref='x',
+    #             yref='y'
+    # )
     st.plotly_chart(fig_ld_50, use_container_width=True)
 
     st.markdown("##")
