@@ -190,6 +190,10 @@ if st.sidebar.button("Calculate LD50"):
 
     st.subheader("✔️ Corrected Mortality")
     st.info('If the mortality rate in control is greater than or equal to 10% proceed with correction of mortality rate by using the equation below.')
+    moor_img = Image.open('morty.jpg')
+    l,m,r = st.columns(3)
+    with m:
+        st.image(moor_img)
     st.markdown("##")
 
     mort_df = pd.DataFrame(mort_list)
